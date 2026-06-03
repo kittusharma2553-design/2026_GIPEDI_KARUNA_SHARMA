@@ -1,0 +1,41 @@
+<circuit version="1.1.0-SR2" rev="260312" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Subcircuit" CircId="Uno-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-288,-64" rotation="90" hflip="1" vflip="1" label="Uno-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
+<mainCompProps MainCompId="mega328-109" Frequency="16 MHz" Program="Users/vanshsharma/Desktop/experiment03/sketch_jun2b/build/arduino.avr.uno/sketch_jun2b.ino.hex" Auto_Load="false" saveEepr="true" MainMcu="true" SerialMon="-1" />
+</item>
+
+<item itemtype="LedMatrix" CircId="LedMatrix-2" mainComp="false" Show_id="false" Show_Val="false" Pos="120,-12" rotation="0" hflip="1" vflip="1" label="LedMatrix-2" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" Rows="8" Cols="8" Vertical_Pins="false" Threshold="2.4 V" MaxCurrent="20 mA" Resistance="0.6 Ω" />
+
+<item itemtype="Connector" uid="Connector-1" startpinid="Uno-1-2" endpinid="LedMatrix-2-pinRow0" pointList="-128,-24,-128,-68,84,-68,84,-12,104,-12" />
+
+<item itemtype="Connector" uid="Connector-2" startpinid="Uno-1-3" endpinid="LedMatrix-2-pinRow1" pointList="-136,-24,-136,-80,72,-80,72,-4,104,-4" />
+
+<item itemtype="Connector" uid="Connector-3" startpinid="Uno-1-4" endpinid="LedMatrix-2-pinRow2" pointList="-144,-24,-144,-92,64,-92,64,4,104,4" />
+
+<item itemtype="Connector" uid="Connector-4" startpinid="Uno-1-5" endpinid="LedMatrix-2-pinRow3" pointList="-152,-24,-152,-104,56,-104,56,12,104,12" />
+
+<item itemtype="Connector" uid="Connector-5" startpinid="Uno-1-6" endpinid="LedMatrix-2-pinRow4" pointList="-160,-24,-160,-112,48,-112,48,20,104,20" />
+
+<item itemtype="Connector" uid="Connector-6" startpinid="Uno-1-7" endpinid="LedMatrix-2-pinRow5" pointList="-168,-24,-168,-120,40,-120,40,28,104,28" />
+
+<item itemtype="Connector" uid="Connector-7" startpinid="Uno-1-8" endpinid="LedMatrix-2-pinRow6" pointList="-184,-24,-184,-136,32,-136,32,36,104,36" />
+
+<item itemtype="Connector" uid="Connector-8" startpinid="Uno-1-9" endpinid="LedMatrix-2-pinRow7" pointList="-192,-24,-192,-128,24,-128,24,44,104,44" />
+
+<item itemtype="Connector" uid="Connector-9" startpinid="Uno-1-10" endpinid="LedMatrix-2-pinCol7" pointList="-200,-24,-200,-140,204,-140,204,92,176,92,176,60" />
+
+<item itemtype="Connector" uid="Connector-10" startpinid="Uno-1-11" endpinid="LedMatrix-2-pinCol6" pointList="-208,-24,-208,-148,212,-148,212,108,168,108,168,60" />
+
+<item itemtype="Connector" uid="Connector-11" startpinid="Uno-1-12" endpinid="LedMatrix-2-pinCol5" pointList="-216,-24,-216,-156,220,-156,220,120,160,120,160,60" />
+
+<item itemtype="Connector" uid="Connector-12" startpinid="Uno-1-13" endpinid="LedMatrix-2-pinCol4" pointList="-224,-24,-224,-168,232,-168,232,128,152,128,152,60" />
+
+<item itemtype="Connector" uid="Connector-13" startpinid="Uno-1-A0" endpinid="LedMatrix-2-pinCol3" pointList="-152,120,-152,160,144,160,144,60" />
+
+<item itemtype="Connector" uid="Connector-14" startpinid="Uno-1-A1" endpinid="LedMatrix-2-pinCol2" pointList="-144,120,-144,144,136,144,136,60" />
+
+<item itemtype="Connector" uid="Connector-15" startpinid="Uno-1-A2" endpinid="LedMatrix-2-pinCol1" pointList="-136,120,-136,132,128,132,128,60" />
+
+<item itemtype="Connector" uid="Connector-16" startpinid="Uno-1-A3" endpinid="LedMatrix-2-pinCol0" pointList="-128,120,-128,136,120,136,120,60" />
+
+</circuit>
