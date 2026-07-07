@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>diyBMSv4 Advanced Dynamic Dashboard</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .dashboard {
+            max-width: 1100px;
+            margin: auto;
+            background-color: #1a1a1a;
+            padding: 25px;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .top-menu {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-size: 13px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .btn:hover { background-color: #3498db; }
+        .btn.active-settings { background-color: #27ae60; }
+
+        .metrics-grid {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 35px;
+            font-size: 13px;
+            border-bottom: 1px solid #2d2d2d;
+            padding-bottom: 15px;
+        }
+
+        .metric span {
+            font-weight: bold;
+            margin-left: 5px;
+            color: #3498db;
+        }
+
+        /* Continuous Horizontal Grid Background Graph */
+        .chart-frame {
+            position: relative;
+            background: #141414;
+            border-left: 1px solid #444;
+            border-bottom: 1px solid #444;
+            height: 260px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            padding: 0 10px;
+            margin-bottom: 30px;
+        }
+
+        .grid-backdrop {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            pointer-events: none;
+            padding: 10px 0;
+            z-index: 1;
+        }
+
+        .horizontal-line {
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .cell-stack {
+            position: relative;
+            flex: 1;
+            max-width: 13%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            z-index: 2;
+            margin: 0 4px;
+        }
+
+        .voltage-bar {
+            width: 100%;
+            border-radius: 2px 2px 0 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .voltage-lbl { font-size: 11px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.8); margin-bottom: 2px; }
+        .temp-lbl { font-size: 10px; background: rgba(0,0,0,0.4); padding: 1px 4px; border-radius: 2px; color: #bdc3c7; }
+        .cell-index { font-size: 11px; color: #7f8c8d; margin-top: 8px; margin-bottom: -22px; }
+
+        .col-yellow { background-color: #f1c40f; color: #111; }
+        .col-blue   { background-color: #2980b9; color: #fff; }
+        .col-pink   { background-color: #d81b60; color: #fff; }
+
+        .settings-zone {
+            margin-top: 25px;
+            min-height: 250px;
+        }
+
+        .dynamic-panel {
+            display: none;
+            background-color: #1e1e1e;
+            padding: 25px;
+            border-radius: 6px;
+            border: 1px solid #333;
+        }
+
+        .panel-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #f39c12;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-group label {
+            width: 160px;
+            font-size: 13px;
+            color: #ccc;
+        }
+
+        .form-group input, .form-group select {
+            flex: 1;
+            max-width: 350px;
+            background-color: #141414;
+            border: 1px solid #444;
+            padding: 10px;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: #2980b9;
+            outline: none;
+        }
+
+        .submit-btn {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            font-size: 13px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .submit-btn:hover { background-color: #2ecc71; }
+    </style>
+</head>
+<body>
+
+<div class="dashboard">
+    <div class="title">diyBMSv4 Monitoring Platform</div>
+    
+    <!-- Top Action Buttons Grid -->
+    <div class="top-menu">
+        <button class="btn" onclick="alert('b1 function triggered')">b1</button>
+        <button class="btn" onclick="alert('b2 function triggered')">b2</button>
+        <button class="btn" id="settingsBtn" onclick="toggleSettingsArea()">b3 (Settings)</button>
+        <button class="btn" onclick="connectUSB()">b4</button>
+        <button class="btn" onclick="alert('b5 function triggered')">b5</button>
+        <button class="btn" onclick="alert('b6 function triggered')">b6</button>
+    </div>
+
+    <!-- Live Parameters Monitoring Grid -->
+    <div class="metrics-grid">
+        <div class="metric">Voltage: <span>22.22V</span></div>
+        <div class="metric">Bypass: <span>58mV</span></div>
+        <div class="metric">SoC: <span>59.99%</span></div>
+        <div class="metric">Current: <span>-0.01A</span></div>
+        <div class="metric">Power: <span>0.23W</span></div>
+    </div>
+
+    <!-- Battery Cell Status Bars Chart Frame -->
+    <div id="chartFrame" class="chart-frame">
+        <div class="grid-backdrop">
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+            <div class="horizontal-line"></div>
+        </div>
+        <!-- Dynamic Graph Bars JavaScript ke zariye yahan insert honge -->
+    </div>
+
+    <!-- Dedicated Conditional Settings Area Wrapper -->
+    <div class="settings-zone">
+        
+        <!-- STEP 1: INITIAL LOGIN VIEW -->
+        <div id="loginPanel" class="dynamic-panel">
+            <div class="panel-title">System Login Required</div>
+            <form onsubmit="event.preventDefault(); proceedToConfig();">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" value="admin" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" value="admin" required>
+                </div>
+                <button type="submit" class="submit-btn" style="background-color: #2980b9;">Login</button>
+            </form>
+        </div>
+
+        <!-- STEP 2: NETWORKS & CELLS CONTROL (Replaces Login completely) -->
+        <div id="configPanel" class="dynamic-panel">
+            <div class="panel-title">Connect to Network & Cell Configuration</div>
+            <form onsubmit="event.preventDefault(); alert('Configuration matrix saved successfully!');">
+                <div class="form-group">
+                    <label>SSID</label>
+                    <input type="text" value="iit" placeholder="Enter Network Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Password (Pr)</label>
+                    <input type="password" value="1234" placeholder="Enter Network Password">
+                </div>
+                <div class="form-group">
+                    <label>No. of Active Cells</label>
+                    <!-- Input change hone par graph bar automatic update hoga -->
+                    <input type="number" id="activeCellsInput" value="5" min="1" max="16" oninput="updateGraphFromInputs()">
+                </div>
+                <div class="form-group">
+                    <label>Total Cell</label>
+                    <!-- Dropdown change hone par graph bar automatic update hoga -->
+                    <select id="totalCellSelect" onchange="updateGraphFromDropdown()">
+                        <!-- Javascript se 0 se 15 tak ke numbers yahan auto fill honge -->
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- LinkedIn Profile Button Section -->
+    <div style="margin-top: 50px; text-align: center; border-top: 1px solid #2d2d2d; padding-top: 20px;">
+        <a href="https://linkedin.com" target="_blank" style="display: inline-flex; align-items: center; background-color: #0077b5; color: white; text-decoration: none; padding: 8px 16px; border-radius: 4px; font-size: 13px; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.3);">
+            <svg style="width: 16px; height: 16px; fill: white; margin-right: 8px;" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            Linked-in Profile
+        </a>
+    </div>
+
+</div>
+
+<script>
+    // USB connection function for the b4 button
+async function connectUSB() {
+    try {
+        // Request access to the USB/Serial port from the browser
+        const port = await navigator.serial.requestPort();
+        
+        // Open the port at 9600 Baud Rate (Standard for Daly BMS)
+        await port.open({ baudRate: 9600 });
+        
+        alert("USB Port connected successfully!");
+        
+        // Start reading data from the BMS
+        readData(port);
+    } catch (error) {
+        console.error("USB Connection Failed:", error);
+        alert("Connection failed or canceled: " + error.message);
+    }
+}
+
+// Function to continuously read incoming data stream
+async function readData(port) {
+    const reader = port.readable.getReader();
+    try {
+        while (true) {
+            const { value, done } = await reader.read();
+            if (done) {
+                break;
+            }
+            // Raw bytes received from the BMS will display in the console log
+            console.log("BMS Data Received:", value);
+        }
+    } catch (error) {
+        console.error("Data Reading Error:", error);
+    } finally {
+        reader.releaseLock();
+    }
+}
+    // Initial static array data dummy values generator
+    const sampleVoltages = ["3.672V", "3.588V", "3.585V", "3.73V", "3.515V", "3.500V", "3.560V", "3.610V", "3.590V", "3.640V", "3.550V", "3.520V", "3.680V", "3.700V", "3.570V", "3.600V"];
+    const sampleTemps = ["19°C", "26°C", "28°C", "35°C", "23°C", "22°C", "25°C", "30°C", "27°C", "32°C", "24°C", "23°C", "33°C", "34°C", "26°C", "29°C"];
+    const sampleHeights = ["72%", "62%", "61%", "78%", "54%", "52%", "58%", "66%", "63%", "70%", "57%", "55%", "74%", "76%", "60%", "64%"];
+    const sampleColors = ["col-yellow", "col-blue", "col-blue", "col-pink", "col-blue", "col-blue", "col-blue", "col-blue", "col-blue", "col-blue", "col-blue", "col-blue", "col-blue", "col-blue", "col-blue", "col-blue"];
+
+    // Page Load hote hi dropdown aur default graph set karna
+    window.onload = function() {
+        var select = document.getElementById('totalCellSelect');
+        // Loop to generate options from 0 to 15 cleanly
+        for (var i = 0; i <= 15; i++) {
+            var opt = document.createElement('option');
+            opt.value = i;
+            opt.innerHTML = i;
+            if(i === 5) opt.selected = true; // Default 5 sets
+            select.appendChild(opt);
+        }
+        renderGraph(5); // Default start with 5 elements
+    };
+
+    // Dropdown value track and logic engine to scale graphs
+    function updateGraphFromDropdown() {
+        var count = parseInt(document.getElementById('totalCellSelect').value);
+        document.getElementById('activeCellsInput').value = count; // sync values
+        renderGraph(count);
+    }
+
+    function updateGraphFromInputs() {
+        var count = parseInt(document.getElementById('activeCellsInput').value);
+        if (count >= 0 && count <= 16) {
+            document.getElementById('totalCellSelect').value = count <= 15 ? count : 15; // sync range check
+            renderGraph(count);
+        }
+    }
+
+    // Core function to empty and dynamically create graph blocks
+    function renderGraph(numBars) {
+        var frame = document.getElementById('chartFrame');
+        
+        // Purane elements (bars) ko frame se clear karna
+        var elements = frame.getElementsByClassName('cell-stack');
+        while(elements.length > 0) {
+            elements[0].parentNode.removeChild(elements[0]);
+        }
+
+        // Loop chalakar dynamic element array inject karna
+        for (var i = 0; i < numBars; i++) {
+            var cellStack = document.createElement('div');
+            cellStack.className = 'cell-stack';
+
+            var vBar = document.createElement('div');
+            vBar.className = 'voltage-bar ' + sampleColors[i];
+            vBar.style.height = sampleHeights[i];
+
+            var vLbl = document.createElement('div');
+            vLbl.className = 'voltage-lbl';
+            vLbl.innerText = sampleVoltages[i];
+
+            var tLbl = document.createElement('div');
+            tLbl.className = 'temp-lbl';
+            tLbl.innerText = sampleTemps[i];
+
+            var cIdx = document.createElement('div');
+            cIdx.className = 'cell-index';
+            cIdx.innerText = 'Cell ' + i;
+
+            vBar.appendChild(vLbl);
+            vBar.appendChild(tLbl);
+            cellStack.appendChild(vBar);
+            cellStack.appendChild(cIdx);
+            
+            frame.appendChild(cellStack);
+        }
+    }
+
+    // Toggle logic controllers for buttons panel
+    function toggleSettingsArea() {
+        var loginBox = document.getElementById('loginPanel');
+        var configBox = document.getElementById('configPanel');
+        var btn = document.getElementById('settingsBtn');
+
+        if (loginBox.style.display === 'block' || configBox.style.display === 'block') {
+            loginBox.style.display = 'none';
+            configBox.style.display = 'none';
+            btn.classList.remove('active-settings');
+        } else {
+            loginBox.style.display = 'block';
+            configBox.style.display = 'none';
+            btn.classList.add('active-settings');
+        }
+    }
+
+    function proceedToConfig() {
+        document.getElementById('loginPanel').style.display = 'none';
+        document.getElementById('configPanel').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>

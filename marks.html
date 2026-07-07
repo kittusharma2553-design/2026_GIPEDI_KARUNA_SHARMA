@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marks Entry Form</title>
+<style>
+body { font-family: Arial, sans-serif; background-color: #f4f7f6; padding: 20px; }
+.container { max-width: 800px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+h2 { text-align: center; color: #333; }
+.form-group { margin-bottom: 15px; }
+label { display: block; font-weight: bold; margin-bottom: 5px; }
+input[type="text"], input[type="number"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+button { width: 100%; background-color: #4CAF50; color: white; padding: 12px; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
+button:hover { background-color: #45a049; }
+table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+th { background-color: #f2f2f2; }
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>Marks Entry System</h2>
+<div class="form-group">
+<label for="entryName">Entry Name:</label>
+<input type="text" id="entryName" placeholder="Enter student or assignment name" required>
+</div>
+<div class="form-group">
+<label for="entryNo">Entry No.:</label>
+<input type="text" id="entryNo" placeholder="Enter entry number" required>
+</div>
+<div class="form-group">
+<label for="submissionNo">Submission No.:</label>
+<input type="text" id="submissionNo" placeholder="Enter submission number" required>
+</div>
+<div class="form-group">
+<label for="markRecord">Mark Record:</label>
+<input type="number" id="markRecord" placeholder="Enter marks" required>
+</div>
+<button onclick="addEntry()">Submit Record</button>
+
+<table>
+<thead>
+<tr>
+<th>Entry Name</th>
+<th>Entry No.</th>
+<th>Submission No.</th>
+<th>Mark Record</th>
+</tr>
+</thead>
+<tbody id="marksTableBody">
+<!-- Data entered will appear here -->
+</tbody>
+</table>
+</div>
+
+<script>
+function addEntry() {
+// Get values from the input fields
+var name = document.getElementById("entryName").value;
+var entryNo = document.getElementById("entryNo").value;
+var subNo = document.getElementById("submissionNo").value;
+var mark = document.getElementById("markRecord").value;
+
+// Basic validation to ensure all fields are filled
+if (name === "" || entryNo === "" || subNo === "" || mark === "") {
+alert("Please fill in all fields.");
+return;
+}
+
+// Create a new row in the table
+var tableBody = document.getElementById("marksTableBody");
+var newRow = tableBody.insertRow();
+
+// Insert cells and populate them with the form data
+var cell1 = newRow.insertCell(0);
+var cell2 = newRow.insertCell(1);
+var cell3 = newRow.insertCell(2);
+var cell4 = newRow.insertCell(3);
+
+cell1.innerHTML = name;
+cell2.innerHTML = entryNo;
+cell3.innerHTML = subNo;
+cell4.innerHTML = mark;
+
+// Clear the input fields after submission
+document.getElementById("entryName").value = "";
+document.getElementById("entryNo").value = "";
+document.getElementById("submissionNo").value = "";
+document.getElementById("markRecord").value = "";
+}
+</script>
+
+</body>
+</html>
