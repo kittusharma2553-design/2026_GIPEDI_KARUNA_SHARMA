@@ -23,12 +23,12 @@
 2.2 LED MATRIX PIN CONFIGURATION 
 3.1 LED MATRIX PATTERN DATA 
 3.2 OBSERVATION AND RESULT TABLE
+---
+
+<div style="break-afer: page;"></div>
 
 
-
-
-
-
+---
 
 # EXPERIMENT 0: ARDUINO BASIC PROGRAM 
 
@@ -78,6 +78,9 @@ Tis experiment can be extended to control multiple LEDs and other electronic com
 ## REFERENCES
 1. Arduino IDEdocumentation 
 2.Arduino uno datasheet
+<div style ="break-after:page;"></div>
+
+---
 ## EXPERIMENT 01 :
 INTERFACING WITH SEVEN SEGMENT LED TO MAKE A COUNTER USING A PUSH BUTTON AS INPUT
 ## OBJECTIVE 
@@ -142,7 +145,11 @@ Checked segment pin connections and corrected the writing according to the circu
 1.Arduino official Documentation 
 2. seven segment display datasheet 
 3 .arduino IDEuser guide
-## EXPERIMENT 03 DISPLAY DIFFERENT PATTERNS ON LED MATRIX 
+<div style ="break-after : page ;"></div>
+
+
+___
+# EXPERIMENT 02 DISPLAY DIFFERENT PATTERNS ON LED MATRIX 
 ## OBJECTIVE 
 To interface an LED matrix arduino and display different patterns ,symbols and designs on the matrix .
 ## TOOLS REQUIRED 
@@ -153,7 +160,7 @@ To interface an LED matrix arduino and display different patterns ,symbols and d
 An LED matrix is a grid of LED arranged in rows and columns . by controlling the LEDs individually ,different patterns ,symbols ,charavters, and animations can be displayed the arduino sends data to the LEDmatrix to illuminate specific LEDs and create the desired pattern .
 ## CIRCUIT DIAGRAM 
  
-![](experiment03/experiment3.png)
+![](experiment02/experiment2.png)
  ## ARDUINO CODE 
  ```cpp
 int pins[] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13}; // Added [] here
@@ -214,7 +221,7 @@ void loop() {
 8. CONCLUSION 
 
 
-## PROJECT REPORT ON 555 TIME IC
+# PROJECT REPORT ON 555 TIME IC
 ##TITLE
 design and implementation of a 555 timer circuit
 ## AIM
@@ -254,7 +261,10 @@ connecting wires
  3. reliable operation 
  ## CONCLUSION 
  The project demonstrated the working principle of the 555 time IC the circuit successfuly generated periodic pulses and showed how resistor and capacitor values affect the timming characteristic of the output signal .
+ <div style ="beark - after : page;"></div>
 
+
+___
  ##TABLE CONTENTS 
  1. AIM 
  2. OBJECTIVE 
@@ -262,7 +272,7 @@ connecting wires
  4. APPLICATION 
  5. CONCLUSION
 
- ##INVERTING AND NON INVERTING AMPLIFIER USING OP AMP
+ # INVERTING AND NON INVERTING AMPLIFIER USING OP AMP
 
 
  ## AIM
@@ -284,8 +294,18 @@ connecting wires
     1. Voltage follows 
     2. sensor signal amplification 
     3. instrumentation circuits.
-    ##CONCLUSION 
- ## TYPING REPORT
+
+    --
+## CONCLUSION 
+    The experiment on the inverting and non-inverting amplifier using an operational amplifier (Op-Amp) was successfully performed. The inverting amplifier produced an output signal that was 180° out of phase with the input, while the non-inverting amplifier produced an output in phase with the input. The voltage gain of both circuits closely matched the theoretical values calculated from the resistor ratios, with only minor differences due to component tolerances and practical limitations of the Op-Amp. This experiment verified the operating principles, gain equations, and phase characteristics of both amplifier configurations and demonstrated their importance in analog signal conditioning and amplification.
+    
+<div style ="break - after: page ;"></div>
+
+
+
+
+    ___
+ # TYPING REPORT
 
 | sno | DATE | TYPING SCORE | 
 | :--- | :--- | :--- | 
@@ -325,8 +345,14 @@ connecting wires
 | 34| 5/6/26 | 29| 
 | 35| 6/6/26 | 29| 
 | 36| 7/6/26| 30| 
+| 36| 7/6/26| 30| 
+37   8/6/26.  29
+<div style ="break - after : page ;"></div>
 
-## HTML CODE WITH SQL DATABASE 
+___
+
+
+# HTML CODE WITH SQL DATABASE 
 ## AIM 
 To create a simple web page using HTML and store user information in an SQL database .
 ## OBJECTIVE 
@@ -433,8 +459,9 @@ To create a simple web page using HTML and store user information in an SQL data
 The user enters the details in the HTML form,and the information is stored in the SQL datadase table .
 ## CONCLUSION 
 The experiment sucessfully demonstrated how HTML can be used to collect user data and SQL can be used to store and manage that data in a database .
+<div style =" break  - after : page;"> </div>
 
-## BMS BUTTON 
+#  BMS BUTTON 
 ## AIM 
 To study the operation of a push button and control an output device using a BMS (Basic Monitoring/Management System).
 ## OBJECTIVE
@@ -612,4 +639,7 @@ Result
    ## RESULT
    The Button Control was created successfully and performed the desired action when clicked.
    ## CONCLUSION
-   The Button Control is an important GUI component used to interact with applications. The experiment demonstrated how a button can be created and programmed to perform specific tasks.
+   The Button Control is an important GUI component used to interact with applications. The experiment demonstrated how a button can be created and programmed to perform specific tasks. 
+   <div style =" break  - after : page;" ></div>
+
+   ___
