@@ -1,60 +1,112 @@
-##2026_GIPEDI_KARUNA_SHARMA
+
+<div align="center">
+<div align="center" style="white-space: nowrap; font-size:32px; font-weight:bold;">
+INDIAN INSTITUTE OF TECHNOLOGY DELHI
+</div>
+
+<div align="center" style="font-size:18px; margin-top:0.5px;">
+New Delhi - 110016
+</div>
+
+<br>
+
+<img src="iitd_logo.png" width="150">
+
+<br><br>
+<div align="center" style="font-size:26px;font-weight:bold; margin-top:0.5px;">
+GIPEDI INTERNSHIP REPORT
+</div>
+
+
+ Submitted in fulfillment of the requirements for the Internship Program
+
+<br><br><br><br><br>
+
+<table>
+<tr>
+<td><b>Name:</b></td>
+<td>Karuna Sharma</td>
+</tr>
+
+<tr>
+<td><b>Internship Period:</b></td>
+<td>15.05.2026 – 15.07.2026</td>
+</tr>
+
+<tr>
+<td><b>Organization:</b></td>
+<td>
+Department of Electrical Engineering<br>
+Indian Institute of Technology Delhi
+</td>
+</tr>
+
+<tr>
+<td><b>Supervisor:</b></td>
+<td>Prof. Subrat Kar</td>
+</tr>
+
+<tr>
+<td><b>Mentor:</b></td>
+<td>Mr. Utkarsh Roy</td>
+</tr>
+</table>
+
+<br><br><br>
+July 2026
+
+</div>
+
+<div  style="break-after: page;"></div>
+
 ## TABLE OF CONTENTS
-1. OBJECTIVE 
-2. TOOLS AND COMPONENTS REQUIRED
-3. CIRCUIT DIAGRAM 
-4. PROGRAM CODE 
-5. WORKING 
-6. OUTPUT/RESULT
-7.LEARNING OUTCOMES 
-8. PROBLEMS FACED AND THEIR SOLUTIONS 
-9. REFERENCES
-## LIST OF FIGURE 
-1.1 ARDUINO UNO BOARD
-1.2 ARDUINO IDE INTERFACE 
-1.3 CIRCUIT DIAGRAM OF ARDUINO SETUP
-2.1 SEVEN SEGEMENT LED INTERFACING CIRCUIT 
-2.2 COUNTER OUTPUT ON SEVEN SEGMENT DISPLAY 
-3.1 LED MATRIX INTERFACING CIRCUIT 
-## LIST OF TABLE 
-1.1 ARDUINO UNO SPECIFICATIONS 
-1.2 COMPONENTS REQUIRED FOR EXPERIMENT 0 
-2.1 PIN CONNECTIONS OF SEVEN SEGMENT DISPLAY 
-2.2 LED MATRIX PIN CONFIGURATION 
-3.1 LED MATRIX PATTERN DATA 
-3.2 OBSERVATION AND RESULT TABLE
----
-
-<div style="break-afer: page;"></div>
+| SNO | TABLE OF CONTENT | PAGE NO |
+|:---:|------------------|:-------:|
+| 1 | Interface with Arduino Uno | 2-3 |
+| 2 | EXPERIMENT 1. Interfacing with seven segment LED using push button | 4-7 |
+| 3 | EXPERIMENT 2. To interface an LED matrix Arduino Uno and different patterns, symbols and design on the matrix | 8-10 |
+| 4 | Project on 555 timer IC | 11-12 |
+| 5 | Inverting and Non-Inverting Amplifier using OpAmp | 13-14 |
+| 6 | Typing Progress Report | 15-16 |
+| 7 | HTML code with SQL database | 17-20 |
+| 8 | BMS button User Interface | 20-25 |
 
 
----
+<div  style="break-after: page;"></div>
 
 # EXPERIMENT 0: ARDUINO BASIC PROGRAM 
 
-
 ## OBJECTIVE:
 
+- Learn the components of an arduino uno circuit .
+- Understand how to connect basic electronic components. 
+- Write and upload a simple arduino program .
+- Verify the circuit through simulation .
 
-- learn the components of an arduino uno circuit .
-- understand how to connect basic electronic components. 
-
-- write and upload a simple arduino program .
-- verify the circuit through simulation .
 ## TOOLS REQUIRED
-1. Arduino uno/esp32
+1. Arduino UNO/esp32
 2. LED
 3. Arduino IDE
+
 ## CIRCUIT DIAGRAM
 
-![](EXPERIMENTS/experiment0/experiment0.png)
+
+<figure>
+  <img src="./EXPERIMENTS/experiment0/experiment0.png" alt="Inverting Amplifier Circuit" width="2900">
+  <figcaption>Figure 1: Inverting Amplifier Circuit</figcaption>
+</figure>
+
+<div style="break-after:page;"></div>
+
+
 ## ARDUINO CODE
 
-```cpp
-#include <const int ledPin = 9; // The digital pin connected to the LED Anode
+```c
+// The digital pin connected to the LED Anode
+const int ledPin = 9; 
 
 void setup() {
-  // Initialize digital pin 13 as an output.
+  // Initialize the digital pin as an output
   pinMode(ledPin, OUTPUT);
 }
 
@@ -64,36 +116,45 @@ void loop() {
   digitalWrite(ledPin, LOW);    // Turn the LED off
   delay(1000);                  // Wait for 1 second
 }
->
+
 ```
+
 ## WORKING
-The program turns the LED ON for one second and OFFfor one second repeatedly creating a blinking effect.
-## LEARING OUTCOME 
-Learned how to connect an LEDto arduino uno write a basic arduino program, and upload code to the board.
+The program turns the LED ON for one second and OFF for one second repeatedly creating a blinking effect.
+
+## LEANING OUTCOME 
+Learned how to connect an LED to arduino uno write a basic arduino program, and upload code to the board.
 ## PROBLEMS FACED AND SOLUTIONS
 1.Problem:LED did not blink .
 2.solution:checked wiring connections and upload the code again.
 ## FUTURE SCOPE
-Tis experiment can be extended to control multiple LEDs and other electronic components.
-## REFERENCES
-1. Arduino IDEdocumentation 
-2.Arduino uno datasheet
-<div style ="break-after:page;"></div>
+This experiment can be extended to control multiple LEDs and other electronic components.
 
----
-## EXPERIMENT 01 :
-INTERFACING WITH SEVEN SEGMENT LED TO MAKE A COUNTER USING A PUSH BUTTON AS INPUT
+
+<div style="break-after: page;"></div>
+
+
+# EXPERIMENT 01 :
+Interface with seven segment led to make a counter using a push button as input
 ## OBJECTIVE 
-To interface a seven segment LEDdisplay with Arduino and use a push button to incrementband display a counter value.
+To interface a seven segment LED display with Arduino and use a push button to increment and display a counter value.
 ## TOOLS REQUIRED
-1. Arduino uno 
-2. seven segment LED display (common cathode)
-3. push button 
+1. Arduino UNO
+2. Seven segment LED display (common cathode)
+3. Push button 
 4. Arduino IDE
-## THEROY 
-A seven segment display consists of seven LEDS arranged in the shape of the number 8.by turning ON and OFF specific segments ,digits from 0 to 9 can be displayed.Apush button is used as an input device. each time the button is pressed, the counter value increases by one and the updated number is displayed on the seven -segment display.
+
+## THEORY
+A seven segment display consists of seven LEDS arranged in the shape of the number 8 by turning ON and OFF specific segments ,digits from 0 to 9 can be displayed. A push button is used as an input device. each time the button is pressed, the counter value increases by one and the updated number is displayed on the seven -segment display.
+
 ## CIRCUIT DIAGRAM
-![](exp0_2/experiment02.png)
+
+<figure>
+  <img src="./exp0_2/experiment02.png" alt="Inverting Amplifier Circuit" width="300">
+  <figcaption>Figure 1: Interfacing with seven segment led using push button
+</figure>
+
+<div style="break-after:page;"></div>
 
 ## ARDUINO CODE 
   ```cpp
@@ -117,50 +178,59 @@ A seven segment display consists of seven LEDS arranged in the shape of the numb
         delay(1000);
     }
   ```
-  ## PROCEDURE 
-  1. Connect the seven -segment display to arduino digital pins .
-  2. connect the push button to the input pin. 
-  3. upload the programto arduino uno .
-  4. press  the push button repeatedly.
-  5. observe the display number ( 1 to 9 )
-  ## OBSERVATIONS 
+## PROCEDURE 
+  1. Connect the seven -segment display to Arduino digital pins .
+  2. Connect the push button to the input pin. 
+  3. Upload the program to arduino uno .
+  4. Press  the push button repeatedly.
+  5. Observe the display number ( 1 to 9 )
+## OBSERVATIONS 
   1. The display initially show 0. 
   2. Each button press increments the counter. 
-  3. after reaching 9,the counter rests to 0.
-  ## LEARNING OUTCOME 
+  3. After reaching 9,the counter rests to 0.
+## LEARNING OUTCOME 
  1. Learned how to interface a seven -segment display with arduino .
  2. Understood digital input using a push button .
 3. Implemented a simple counter system.
-## PROBLEM FACED AND SOULTIONS 
+## PROBLEM FACED AND SOlution
 PROBLEM:
-Incorrect digits displayedon the seven-segment display .
+Incorrect digits displayed on the seven-segment display .
 SOLUTION:
 Checked segment pin connections and corrected the writing according to the circuit diagram .
+
+<div style="break-after:page;"></div>
+
 ## FUTURE SCOPE 
 1. Two digital and four- digit counters.
-2. visitor counting systems. 
-3. digital scoreboards. 
-4. electronic voting and counting applications .
-## REFERENCES 
-1.Arduino official Documentation 
-2. seven segment display datasheet 
-3 .arduino IDEuser guide
-<div style ="break-after : page ;"></div>
+2. Visitor counting systems. 
+3. Digital scoreboards. 
+4. Electronic voting and counting applications .
+  
 
 
-___
-# EXPERIMENT 02 DISPLAY DIFFERENT PATTERNS ON LED MATRIX 
+<div  style="break-after: page;"></div>
+
+# EXPERIMENT 03 
+Display different patterns on led matrix
+
 ## OBJECTIVE 
 To interface an LED matrix arduino and display different patterns ,symbols and designs on the matrix .
 ## TOOLS REQUIRED 
-1. arduino uno
+1. Arduino uno
 2. 8x8 LED matrix 
-3. max 7219 led matrix driver module (if used )
+ 
 ## THEORY 
-An LED matrix is a grid of LED arranged in rows and columns . by controlling the LEDs individually ,different patterns ,symbols ,charavters, and animations can be displayed the arduino sends data to the LEDmatrix to illuminate specific LEDs and create the desired pattern .
+An LED matrix is a grid of LED arranged in rows and columns . by controlling the LEDs individually ,different patterns ,symbols, characters, and animations can be displayed the arduino sends data to the LED matrix to illuminate specific LEDs and create the desired pattern .
 ## CIRCUIT DIAGRAM 
  
-![](experiment02/experiment2.png)
+
+<figure>
+  <img src="./experiment03/experiment3.png" alt="Inverting Amplifier Circuit" width="500">
+  <figcaption>Figure To interfacing an led matrix arduino uno </figcaption>
+</figure>
+
+<div style="break-after:page;"></div>
+
  ## ARDUINO CODE 
  ```cpp
 int pins[] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13}; // Added [] here
@@ -184,128 +254,128 @@ void loop() {
 }
 ```
 
- ## PROCEDURE 
+## PROCEDURE 
  1. Connect the LED matrix to the arduino . 
- 2. upload the program using arduino IDE. 
+ 2. Upload the program using arduino IDE. 
  3. Run the circuit . 
- 4. observe the displayed pattern on the LED matrix .
- 5. modify the pattern data to display  different shapes and symbols.
- ## OBSERVATIONS 
- 1. The led matrix sucessfully displayed the programmed pattern .
- 2. different patterns can be created by changing the binary values in the code .
- 3. the matrix can display symbols ,letters, numbers, and simple animations .
- ## LEARNING OUTCOME 
- 1. learned how to interface an LED matrix with arduino 
- 2. understood row and coluns addressing in LED matrices.
+ 4. Observe the displayed pattern on the LED matrix .
+ 5. Modify the pattern data to display  different shapes and symbols.
+## OBSERVATIONS 
+ 1. The led matrix successfully displayed the programmed pattern .
+ 2. Different patterns can be created by changing the binary values in the code .
+ 3. The matrix can display symbols ,letters, numbers, and simple animations .
+## LEARNING OUTCOME 
+ 1. Learned how to interface an LED matrix with arduino 
+ 2. Understood row and columns addressing in LED matrices.
  3. Gained experience in creating visual patterns using programming
- ## PROBLEAMS 
- pattern was not displayed correctly .
- ## SOLUTION:
+## PROBLEMS
+ Pattern was not displayed correctly .
+ <div style ="break-after:page;"></div>
+## SOLUTION 
  Checked wiring connections and verified the binary pattern data in the coe .
- ## FUTURE SCOPE 
- 1. Display scrolling text . 
- 2. create animations and games 
- 3. Design digital notice boards
- ## REFERENCES
- 1. Arduino official documentation 
- 2. max 7219 led matrix datasheet 
- 3. Arduino LED matrix library documentation
- ## TABLE OF CONTENTS 
- 1. TITLE 
- 2 . AIM
- 3. OBJECTIVE 
- 4. COMPONENTS REQUIRED 
- 5. CIRCUIT DIAGRAM 
-6. PRODUCER
-7. ADVANTAGE 
-8. CONCLUSION 
 
+## FUTURE SCOPE 
+ 1. Display scrolling text . 
+ 2. Create animations and games 
+ 3. Design digital notice boards
+
+ <div  style="break-after: page;"></div>
+
+ 
 
 # PROJECT REPORT ON 555 TIME IC
-##TITLE
-design and implementation of a 555 timer circuit
+## TITLE
+Design and implementation of a 555 timer circuit
 ## AIM
-TO study the working of the 555 timer ICand generate timing pulses using an astable multivibrator circuit 
+TO study the working of the 555 timer IC and generate timing pulses using an astable multivibrator circuit 
 ## OBJECTIVE 
-1. TO understand the operation of the 555 time IC 
+1. To understand the operation of the 555 time IC 
 2. To generate a continuous square wave output 
-3. To observe the charging and discharging of a capacitor 
-##COMPONENTS REQUIRED 
+3. To observe the charging and discharging of a capacitor
+##  COMPONENTS REQUIRED 
 1. 555timer IC
-2. Resistor r1 (1kohm)
-3. Restistor R2(10k ohm)
+2. Resistor r1 (1k ohm)
+3. Resistor R2(10k ohm)
 capacitor c1 (10uf)
 connecting wires
 
 ## CIRCUIT DIAGRAM 
  
-![](./ne555_timer.png)
 
- ##PROCRDURE 
+<figure>
+  <img src="./ne555_timer.png" alt="Inverting Amplifier Circuit" width="500">
+  <figcaption>Figure 1: 555 timer IC </figcaption>
+</figure>
+<div style="break-after:page;></div>
+
+
+## PROCEDURE
  1. Place the timer IC on the breadboard 
- 2. connect the power supply.
- 3. turn on the power supply 
- 4. observe the blinking led.
- ## observation 
- 1. The LED blinking rate depends on the resister and capacitor value 
- 2. The LED blinks continuously 
- 3. Asquare wave is odtained at the output pin .
- ## APPLICATION 
+ 2. Connect the power supply.
+ 3. Turn on the power supply 
+ 4. Observe the blinking led.
+## Observation 
+ 6. The LED blinking rate depends on the resister and capacitor value 
+ 7. The LED blinks continuously 
+ 8. A square wave is obtained at the output pin .
+## APPLICATION 
  1. LED flashers 
- 2. pulse generators 
+ 2. Pulse generators 
  clock circuit 
  alarm system 
- ## ADVANTAGES 
- 1. low 
- 2. easy to use 
- 3. reliable operation 
- ## CONCLUSION 
- The project demonstrated the working principle of the 555 time IC the circuit successfuly generated periodic pulses and showed how resistor and capacitor values affect the timming characteristic of the output signal .
- <div style ="beark - after : page;"></div>
+## ADVANTAGES 
+ 1. Low 
+ 2. Easy to use 
+ 3. Reliable operation 
+## CONCLUSION 
+ The project demonstrated the working principle of the 555 time IC the circuit successfully generated periodic pulses and showed how resistor and capacitor values affect the timing characteristic of the output signal .
+ 
+<div  style="break-after: page;"></div>
 
 
-___
- ##TABLE CONTENTS 
- 1. AIM 
- 2. OBJECTIVE 
- 3. CIRCUIT DIAGRAM 
- 4. APPLICATION 
- 5. CONCLUSION
-
- # INVERTING AND NON INVERTING AMPLIFIER USING OP AMP
 
 
- ## AIM
+# INVERTING AND NON INVERTING AMPLIFIER USING OP AMP
+
+
+## AIM
  To study and analyze the operation of inverting and non inverting amplifier using an operational amplifier (op amp)
- ##objective 
- 1. to understand the working principle of inverting and non inverting amplifiers 
-  2 . to calculate and verify the voltage gain of both amplifier configurations 
- 3. To compare their charactersitics and applications .
- ##CIRCUIT DIAGRAN INVERTING AND NON-INVERTING 
+## Objective 
+ 1. To understand the working principle of inverting and non inverting amplifiers 
+ 2. To calculate and verify the voltage gain of both amplifier configurations 
+ 3. To compare their characteristics and applications .
+ 
+## CIRCUIT DIAGRAM INVERTING AND NON-INVERTING 
     
-![](./second_2.png)
-![](./3diagram.png)
-## APPLICATION 
+
+
+<figure>
+  <img src="./second_2.png" alt="Inverting Amplifier Circuit" width="500">
+  <figcaption>Figure 1: Inverting and non inverting amplifier using op amp</figcaption>
+</figure>
+
+<figure>
+  <img src="./3diagram.png" alt="Inverting Amplifier Circuit" width="500">
+  <figcaption>Figure 1: Inverting Amplifier Circuit</figcaption>
+</figure>
+
+<div style="break-after:page;></div>
+
+
+## APPLICATION
+
     INVERTING AMPLIFIER 
     1. Signal conditioning 
     2. Audio amplifiers 
     3. active filters 
     NON INVERTING AMPLIFIER 
     1. Voltage follows 
-    2. sensor signal amplification 
-    3. instrumentation circuits.
-
-    --
-## CONCLUSION 
-    The experiment on the inverting and non-inverting amplifier using an operational amplifier (Op-Amp) was successfully performed. The inverting amplifier produced an output signal that was 180° out of phase with the input, while the non-inverting amplifier produced an output in phase with the input. The voltage gain of both circuits closely matched the theoretical values calculated from the resistor ratios, with only minor differences due to component tolerances and practical limitations of the Op-Amp. This experiment verified the operating principles, gain equations, and phase characteristics of both amplifier configurations and demonstrated their importance in analog signal conditioning and amplification.
+    2. Sensor signal amplification 
+    3. Instrumentation circuits.
+   
+<div  style="break-after: page;"></div>
     
-<div style ="break - after: page ;"></div>
-
-
-
-
-    ___
- # TYPING REPORT
+# TYPING REPORT
 
 | sno | DATE | TYPING SCORE | 
 | :--- | :--- | :--- | 
@@ -345,56 +415,68 @@ ___
 | 34| 5/6/26 | 29| 
 | 35| 6/6/26 | 29| 
 | 36| 7/6/26| 30| 
-| 36| 7/6/26| 30| 
-37   8/6/26.  29
-<div style ="break - after : page ;"></div>
+*Table 1: typing report.*
 
-___
+<figure>
+  <img src="./typing report graph.png" alt="Inverting Amplifier Circuit" width="500">
+  <figcaption>Figure Typing progress graph</figcaption>
+</figure>
 
+<div  style="break-after: page;"></div>
 
 # HTML CODE WITH SQL DATABASE 
 ## AIM 
 To create a simple web page using HTML and store user information in an SQL database .
 ## OBJECTIVE 
-1.To design a user input form using HTML.
+1. To design a user input form using HTML.
 2. To store the entered data in an SQL database .
 3. To retrieve and display records from the database .
   ## SOFTWARE REQUIRED 
   1. Notepad 
   2. XAMPP SERVER
   3. MYsql Database
-  4. Sql
- ## INTRODUCTION 
- HTML (hyper text markup language ) is used to create web pages and collect user input through forms .SQL (Structure Query language ) is used to create and manage database .since HTML cannot communicate directly with a database , a server- side language such as PHPis used as an intermediary between HTMLand SQL .this project demonstrates a simple student registration system where student can enter thier details ,and the information is stored in a MYSQL database .
- ## software and hardware requirment 
- SOFTWARE REQUIREMENTS 
- 1. Operating system : windows 10/11
- 2. Text editor :NOTEPAD 
- 3. XAMPP server 
- 4. MySQL database 
-   ## HARDWARE REQUIREMENTS 
-   1. Computer or laptop 
-   2. minimum 4GB RAM 
-   3. 500 MB free dissk space 
-   
-   ## THEORY 
-   HTML:
-   HTML is the standard markup language used for creating web pages . it provides various elements such as forms , text boxes, button , and labels for user interaction .
-   SQL :
-   SQL is a language used to manage relational databsae .It allows user to create databases, table , insert record ,update data , and retrieve information .
-   PHP :
-   PHP is a server -side scripting language thatbprocesses from data and interacts with the MYSQL database .
-   ## FLOW OF THE SYSTEM 
-   4. User opens the registration page .
-   5. user enters details in the html form. 
-   6. the form sends data to the php file .
-   7. php establishes a connection with MYSQL . 
-   8. SQL query inserts the data into the database . 
-   9. Asuccess message is displayed .
+  4. SQL
+## INTRODUCTION 
+ HTML (hyper text markup language ) is used to create web pages and collect user input through forms .SQL (Structure Query language ) is used to create and manage database .since HTML cannot communicate directly with a database , a server- side language such as PHP is used as an intermediary between HTM Land SQL .this project demonstrates a simple student registration system where student can enter their details ,and the information is stored in a MYSQL database .
+## Software and Hardware Requirement 
+1. Operating system : windows 10/11
+2. Text editor :NOTEPAD 
+3. XAMPP server 
+4. MySQL database 
+## HARDWARE REQUIREMENTS 
+1. Computer or laptop 
+2. Minimum 4GB RAM 
+3. 500 MB free disk space 
 
+<div style="break-after:page;"></div>
    
-   ## HTML CODE 
-   ~~~
+## THEORY 
+### HTML
+ HTML is the standard markup language used for creating web pages . it provides various elements such as forms , text boxes, button , and labels for user interaction .
+ ### SQL :
+   SQL is a language used to manage relational database .It allows user to create databases, table , insert record ,update data , and retrieve information .
+   ### PHP :
+   PHP is a server -side scripting language that processes from data and interacts with the MYSQL database 
+   ### FLOW OF THE SYSTEM 
+1. User opens the registration page .
+2. User enters details in the html form. 
+3. The form sends data to the php file .
+4. php establishes a connection with MYSQL . 
+5. SQL query inserts the data into the database . 
+6. A success message is displayed .
+
+## SQL DATA
+
+<figure>
+  <img src="./STUDENT_MARKS.png" alt="student _marks " width="500">
+  <figcaption>Figure: student marks</figcaption>
+</figure>
+
+
+<div style="break-after:page;"></div>
+
+## HTML CODE 
+~~~html
   <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -447,40 +529,45 @@ To create a simple web page using HTML and store user information in an SQL data
 ## ADVANTAGE 
 1. EASY Data management 
 2. Reduces paperwork 
-3. quick retrieval of records 
+3. Quick retrieval of records 
 4. Improves accuracy and efficiency .
 ## APPLICATION 
 1. School management systems
-2. college recorg systems 
+2. College record systems 
 3. Employee management systems 
 4. Library management systems
  
 ## OUTPUT 
-The user enters the details in the HTML form,and the information is stored in the SQL datadase table .
+The user enters the details in the HTML form,and the information is stored in the SQL database table .
 ## CONCLUSION 
 The experiment sucessfully demonstrated how HTML can be used to collect user data and SQL can be used to store and manage that data in a database .
-<div style =" break  - after : page;"> </div>
 
-#  BMS BUTTON 
+---
+<div  style="break-after: page;"></div>
+
+# BMS BUTTON USER INTERFACE
 ## AIM 
 To study the operation of a push button and control an output device using a BMS (Basic Monitoring/Management System).
 ## OBJECTIVE
 To understand the working of push buttons and their application in automation and control systems.
-## THORY 
+## THEORY
 A Button Control is a graphical user interface (GUI) element used to execute a command when clicked by the user. It is one of the most commonly used controls in BMS applications. Button controls help users interact with software easily and efficiently.
 ## SOFTWARE REQUIRED
 1. BMS Software
 2. COMPUTER SYSTEM 
 ## PROCEDURE 
-1.open the BMS software
-2. create a new project.
+1. Open the BMS software
+2. Create a new project.
 3. Drag and drop a Button Control onto the form.
 4. Change the button text to "Click Me".
 5. Write code for the button click event.
 6. Run the application.
 7. Click the button and observe the result.
- ## PROGRAM CODE 
-~~~
+
+<div style="break-after:page;"></div>
+
+## PROGRAM CODE 
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -626,20 +713,43 @@ A Button Control is a graphical user interface (GUI) element used to execute a c
 });
 </script>
 ~~~
- ## SCREENSHORT
+
+<div style="break-after:page;"></div>
+
+## SCREENSHORT
 
 
-![](BMS_buttons.png)
 
- ## OBSERVATION 
+<figure>
+  <img src="./BMS_buttons.png" alt="Inverting Amplifier Circuit" width="400">
+  <figcaption>Figure bms button interface</figcaption>
+</figure>
+
+## OBSERVATION 
 1. The button appeared on the form.
-Clicking the button 2. displayed a message box.
+Clicking the button 
+2. Displayed a message box.
 3. The button executed the assigned command correctly.
 Result
-   ## RESULT
+## RESULT
    The Button Control was created successfully and performed the desired action when clicked.
-   ## CONCLUSION
-   The Button Control is an important GUI component used to interact with applications. The experiment demonstrated how a button can be created and programmed to perform specific tasks. 
-   <div style =" break  - after : page;" ></div>
-
+## CONCLUSION
+   The Button Control is an important GUI component used to interact with applications. The experiment demonstrated how a button can be created and programmed to perform specific tasks
    ___
+   
+   <div style="break-after:page;"></div>
+
+   ##  REFERENCES
+    [1] Arduino, “Arduino Uno Rev3,” Arduino Documentation. [Online]. Available: https://docs.arduino.cc/hardware/uno-rev3/. Accessed: Jul. 13, 2026.
+
+    [2] Texas Instruments, “NE555 Precision Timers Datasheet,” Texas Instruments. [Online]. Available: https://www.ti.com/product/NE555. Accessed: Jul. 13, 2026.
+
+    [3] Analog Devices, “Operational Amplifier (Op-Amp) Applications,” Analog Devices. [Online]. Available: https://www.analog.com/en/resources/technical-articles.html. Accessed: Jul. 13, 2026.
+
+    [4] GeeksforGeeks, “PHP MySQL CRUD Operations,” GeeksforGeeks. [Online]. Available: https://www.geeksforgeeks.org/php-mysql-crud-operations/. Accessed: Jul. 13, 2026.
+
+    [5] GeeksforGeeks, “HTML Button Tag,” GeeksforGeeks. [Online]. Available: https://www.geeksforgeeks.org/html-button-tag/. Accessed: Jul. 13, 2026.
+
+    [6] OpenAI, ChatGPT (GPT-5.5). [Online]. Available: https://chatgpt.com/. Accessed: Jul. 13, 2026.
+
+⸻
