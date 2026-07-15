@@ -62,7 +62,7 @@ July 2026
 ## TABLE OF CONTENTS
 | SNO | TABLE OF CONTENT | PAGE NO |
 |:---:|------------------|:-------:|
-| 1 | Interface with Arduino Uno | 2-3 |
+| 1 | Interface with Arduino Uno[] | 2-3 |
 | 2 | EXPERIMENT 1. Interfacing with seven segment LED using push button | 4-7 |
 | 3 | EXPERIMENT 2. To interface an LED matrix Arduino Uno and different patterns, symbols and design on the matrix | 8-10 |
 | 4 | Project on 555 timer IC | 11-12 |
@@ -92,7 +92,7 @@ July 2026
 
 
 <figure>
-  <img src="./EXPERIMENTS/experiment0/experiment0.png" alt="Inverting Amplifier Circuit" width="2900">
+  <img src="./experiment_0/experiment0.png" alt="Inverting Amplifier Circuit" width="2900">
   <figcaption>Figure 1: Inverting Amplifier Circuit</figcaption>
 </figure>
 
@@ -150,7 +150,7 @@ A seven segment display consists of seven LEDS arranged in the shape of the numb
 ## CIRCUIT DIAGRAM
 
 <figure>
-  <img src="./exp0_2/experiment02.png" alt="Inverting Amplifier Circuit" width="300">
+  <img src="./experiment_1/experiment02.png" alt="Inverting Amplifier Circuit" width="500">
   <figcaption>Figure 1: Interfacing with seven segment led using push button
 </figure>
 
@@ -225,7 +225,7 @@ An LED matrix is a grid of LED arranged in rows and columns . by controlling the
  
 
 <figure>
-  <img src="./experiment03/experiment3.png" alt="Inverting Amplifier Circuit" width="500">
+  <img src="./experiment_3/experiment3.png" alt="Inverting Amplifier Circuit" width="500">
   <figcaption>Figure To interfacing an led matrix arduino uno </figcaption>
 </figure>
 
@@ -303,8 +303,12 @@ connecting wires
  
 
 <figure>
-  <img src="./ne555_timer.png" alt="Inverting Amplifier Circuit" width="500">
+  <img src="./N555_exp/ne555_timer.png" alt="Inverting Amplifier Circuit" width="500">
   <figcaption>Figure 1: 555 timer IC </figcaption>
+</figure>
+<figure>
+  <img src="./N555_exp/project on 555timer ic output.png" alt="Inverting Amplifier Circuit" width="500">
+  <figcaption>Figure Output Waveform</figcaption>
 </figure>
 <div style="break-after:page;></div>
 
@@ -350,13 +354,17 @@ connecting wires
 
 
 <figure>
-  <img src="./second_2.png" alt="Inverting Amplifier Circuit" width="500">
+  <img src="./Op-Amp/second_2.png" alt="Inverting Amplifier Circuit" width="500">
   <figcaption>Figure 1: Inverting and non inverting amplifier using op amp</figcaption>
 </figure>
 
 <figure>
-  <img src="./3diagram.png" alt="Inverting Amplifier Circuit" width="500">
+  <img src="./Op-Amp/3diagram.png" alt="Inverting Amplifier Circuit" width="500">
   <figcaption>Figure 1: Inverting Amplifier Circuit</figcaption>
+</figure>
+<figure>
+  <img src="./Op-Amp/inverting andnon inverting amplifier output.png" alt="Inverting Amplifier Circuit" width="500">
+  <figcaption>Figure Output Waveform</figcaption>
 </figure>
 
 <div style="break-after:page;></div>
@@ -418,7 +426,7 @@ connecting wires
 *Table 1: typing report.*
 
 <figure>
-  <img src="./typing report graph.png" alt="Inverting Amplifier Circuit" width="500">
+  <img src="./Typing_progress/typing report graph.png" alt="Inverting Amplifier Circuit" width="500">
   <figcaption>Figure Typing progress graph</figcaption>
 </figure>
 
@@ -468,7 +476,7 @@ To create a simple web page using HTML and store user information in an SQL data
 ## SQL DATA
 
 <figure>
-  <img src="./STUDENT_MARKS.png" alt="student _marks " width="500">
+  <img src="./Student_database/STUDENT_MARKS.png" alt="student _marks " width="500">
   <figcaption>Figure: student marks</figcaption>
 </figure>
 
@@ -721,7 +729,7 @@ A Button Control is a graphical user interface (GUI) element used to execute a c
 
 
 <figure>
-  <img src="./BMS_buttons.png" alt="Inverting Amplifier Circuit" width="400">
+  <img src="./BMS_Project/BMS_BUTTON2.png" alt="Inverting Amplifier Circuit" width="400">
   <figcaption>Figure bms button interface</figcaption>
 </figure>
 
@@ -736,20 +744,53 @@ Result
 ## CONCLUSION
    The Button Control is an important GUI component used to interact with applications. The experiment demonstrated how a button can be created and programmed to perform specific tasks
    ___
-   
-   <div style="break-after:page;"></div>
+##  REFERENCES
+    
 
-   ##  REFERENCES
-    [1] Arduino, “Arduino Uno Rev3,” Arduino Documentation. [Online]. Available: https://docs.arduino.cc/hardware/uno-rev3/. Accessed: Jul. 13, 2026.
+1. **Arduino.** *Arduino Uno Rev3.* Arduino Documentation.  
+   Available: <https://docs.arduino.cc/hardware/uno-rev3/>  
+   **Accessed:** May 26, 2026.
 
-    [2] Texas Instruments, “NE555 Precision Timers Datasheet,” Texas Instruments. [Online]. Available: https://www.ti.com/product/NE555. Accessed: Jul. 13, 2026.
+2. **Arduino.** *Arduino IDE Documentation.*  
+   Available: <https://docs.arduino.cc/software/ide/>  
+   **Accessed:** May 28, 2026.
 
-    [3] Analog Devices, “Operational Amplifier (Op-Amp) Applications,” Analog Devices. [Online]. Available: https://www.analog.com/en/resources/technical-articles.html. Accessed: Jul. 13, 2026.
+3. **Arduino.** *Seven Segment Display Tutorials and Examples.*  
+   Available: <https://docs.arduino.cc/>  
+   **Accessed:** June 01, 2026.
 
-    [4] GeeksforGeeks, “PHP MySQL CRUD Operations,” GeeksforGeeks. [Online]. Available: https://www.geeksforgeeks.org/php-mysql-crud-operations/. Accessed: Jul. 13, 2026.
+4. **Arduino.** *LED Matrix Display Documentation.*  
+   Available: <https://docs.arduino.cc/>  
+   **Accessed:** June 05, 2026.
 
-    [5] GeeksforGeeks, “HTML Button Tag,” GeeksforGeeks. [Online]. Available: https://www.geeksforgeeks.org/html-button-tag/. Accessed: Jul. 13, 2026.
+5. **Texas Instruments.** *NE555 Precision Timer Datasheet.*  
+   Available: <https://www.ti.com/product/NE555>  
+   **Accessed:** June 20, 2026.
 
-    [6] OpenAI, ChatGPT (GPT-5.5). [Online]. Available: https://chatgpt.com/. Accessed: Jul. 13, 2026.
+6. **Texas Instruments.** *LM741 Operational Amplifier Datasheet.*  
+   Available: <https://www.ti.com/product/LM741>  
+   **Accessed:** June 28, 2026.
 
-⸻
+7. **Analog Devices.** *Operational Amplifier Technical Articles.*  
+   Available: <https://www.analog.com/en/resources/technical-articles.html>  
+   **Accessed:** June 30, 2026.
+
+8. **Oracle Corporation.** *MySQL Documentation.*  
+   Available: <https://dev.mysql.com/doc/>  
+   **Accessed:** July 03, 2026.
+
+9. **GeeksforGeeks.** *PHP MySQL CRUD Operations.*  
+   Available: <https://www.geeksforgeeks.org/php-mysql-crud-operations/>  
+   **Accessed:** July 05, 2026.
+
+10. **GeeksforGeeks.** *HTML Button Tag.*  
+    Available: <https://www.geeksforgeeks.org/html-button-tag/>  
+    **Accessed:** July 08, 2026.
+
+11. **MDN Web Docs.** *JavaScript Guide.*  
+    Available: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide>  
+    **Accessed:** July 09, 2026.
+
+12. **GitHub Repository.** *Source Code Repository for Internship Projects.*  
+    Available: <https://github.com/kittusharma2553-design/2026_GIPEDI_KARUNA_SHARMA.git>  
+    **Accessed:** July 10, 2026.
